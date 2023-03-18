@@ -9,26 +9,42 @@
 
 @using (Html.BeginForm("Create", "Courses"))
 {
+    @Html.AntiForgeryToken()
+   
+
     <div class="form__group">
         @Html.LabelFor(m => m.Place)
         <br />
         @Html.TextBoxFor(m => m.Place, new { @class = "form__control" })
+        <br />
+        @Html.ValidationMessageFor(m => m.Place)
     </div>
     <div class="form__group">
         @Html.LabelFor(m => m.Date)
         <br />
         @Html.TextBoxFor(m => m.Date, new { @class = "form__control" })
+        <br />
+        @Html.ValidationMessageFor(m => m.Date)
     </div>
     <div class="form__group">
         @Html.LabelFor(m => m.Time)
         <br />
         @Html.TextBoxFor(m => m.Time, new { @class = "form__control" })
+        <br />
+        @Html.ValidationMessageFor(m => m.Time)
     </div>
 
     <div class="form__group">
         @Html.LabelFor(m => m.Category)
         <br />
         @Html.DropDownListFor(m => m.Category, new SelectList(Model.Categories, "Id", "Name"), "", new { @class = "form__control" })
+        <br />
+        @Html.ValidationMessageFor(m => m.Category)
     </div>
     <button type="submit" value="Save" class="btn btn__primary">Save</button>
+}
+
+@section scripts 
+{
+    @Scripts.Render("~/bundles/jqueryval");
 }

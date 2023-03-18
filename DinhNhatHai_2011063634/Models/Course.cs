@@ -11,7 +11,7 @@ namespace DinhNhatHai_2011063634.Models
     {
         public int Id { get; set; }
 
-        public ApplicationUser Lecturer { get; set; }
+        public ApplicationUser  Lecturer { get; set; }
         [Required]
         public string LecturerId { get; set; }
         [Required]
